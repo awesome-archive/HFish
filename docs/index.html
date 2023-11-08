@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>反制溯源_欺骗防御_主动防御-HFish免费蜜罐平台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="反制溯源,欺骗防御,主动防御,HFish免费蜜罐平台">
+    <meta name="description" content="HFish承载了全新的架构理念和实现方案,是一个安全,简单,有效的蜜罐平台,具有反制溯源,欺骗防御,主动防御等功能,永久免费。">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="./vue.css">
+    <link rel="shortcut icon" href="#" />
+    <!-- sensorsdata.min.js 改名防止被插件阻止 -->
+    <!-- <script src="./sc.min.js"></script> -->
+    <style type="text/css">
+        /* html{
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
+            filter: grayscale(100%);
+            filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+            filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+        }
+        */
+        .cover-main {
+            color: #ffffff;
+        }
+
+        .cover-main .anchor span {
+            color: #ffffff;
+        }
+
+        section.cover.has-mask .mask {
+            background-color: initial;
+            opacity: .8;
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .homepage_con nav {
+            color: #fff;
+        }
+        
+        .homepage_con nav ul ul {
+            color: #34495e
+        }
+        
+        .app-nav li ul a {
+            width: 86px;
+        }
+        
+        nav {
+            color: #34495e;
+        }
+        
+        .sticky nav {
+            color: #34495e;
+        }
+
+        section.cover .cover-main>p:last-child a:last-child:hover {
+            --theme-color: #ff5656;
+        }
+
+        section.cover .cover-main>p:last-child a:hover {
+            color: #ff5656;
+        }
+
+        .version {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        var homePageClass = ' homepage_con'
+        function homePageHandle () {
+            var isHomePage = window.location.hash === '#/' || window.location.hash === '#/en/'
+            var bodyEl = document.body
+            var className = bodyEl.className
+            if (isHomePage) {
+                if ((className.indexOf(homePageClass) === -1)) {
+                    bodyEl.className = '' + (bodyEl.className || '') + homePageClass
+                }
+            } else {
+                if ((className.indexOf(homePageClass) > -1)) {
+                    bodyEl.className = bodyEl.className.replace(homePageClass, '')
+                }
+            }
+        }
+        window.addEventListener('hashchange', function () {
+            homePageHandle()
+        })
+        homePageHandle()
+    </script>
+    <script>
+        window.$docsify = {
+            name: 'HFish',
+            nameLink: {
+                '/en/': '/#/en/',
+                '/': '/',
+            },
+            loadSidebar: true,
+            loadNavbar: true,
+            mergeNavbar: true,
+            auto2top: true,
+            subMaxLevel: 3,
+            coverpage: {
+                '/en/': '_coverpage.md',
+                '/': '_coverpage.md',
+            },
+            relativePath: true,
+            themeColor: '#e93636',
+            sidebarDisplayLevel: 0, // set sidebar display level
+            dv: {
+                model: {
+                    version: '3.3.4',
+                }
+            },
+            search: {
+                paths: 'auto',
+                maxAge: 26400000, // 过期时间，单位毫秒，默认一天
+                placeholder: {
+                    '/en/': 'Please enter your search',
+                    '/': '请输入搜索内容'
+                },
+                noData: {
+                    '/': '找不到结果',
+                    '/en/': 'No Results'
+                },
+                depth: 2
+            },
+            tabs: {
+                persist: true,      // 刷新后是否同步状态
+                sync: true,      // 如果有多个选项卡是否同步变化
+                theme: 'classic', // default
+                tabComments: true,      // default
+                tabHeadings: true       // default
+            },
+            copyCode: {
+                buttonText: {
+                    '/en/': 'Copy',
+                    '/': '复制',
+                },
+                errorText:  {
+                    '/en/': 'Error',
+                    '/': '失败',
+                },
+                successText: {
+                    '/en/': 'Success',
+                    '/': '成功',
+                }
+            }
+            // repo: 'https://github.com/hacklcx/HFish',
+        }
+        // var sensors = window['sensorsDataAnalytic201505'];
+        // sensors.init({
+        //     server_url: 'https://trace.threatbook.cn/sa?project=freemium',
+        //     heatmap: { scroll_notice_map: 'not_collect' },
+        //     is_track_single_page: true,
+        //     preset_properties: { search_keyword_baidu: true }
+        // });
+        // sensors.quick('autoTrack');
+        // sensors.use('PageLeave', { heartbeat_interval_time: 5 })
+    </script>
+
+    <script src="./js/docsify.min.js"></script>
+    <!-- plugins -->
+    <script src="./js/search.min.js"></script>
+    <script src="./js/prism-bash.min.js"></script>
+    <script src="./js/prism-markdown.min.js"></script>
+    <script src="./js/docsify-tabs.min.js"></script>
+    <script src="./js/docsify-copy-code.min.js"></script>
+    <script src="./js/docsify-sidebar-collapse.min.js"></script>
+</body>
+
+</html>
